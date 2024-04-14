@@ -1,0 +1,54 @@
+{
+	"intents": [
+		{
+			"tag": "Saludos",
+			"patterns": [
+				"Hola, ¿cómo estás?",
+				"¿Qué onda?",
+				"¿Qué tal?",
+				"¿Cómo va todo?",
+				"¿Qué pasa?",
+				"¿Qué hay de nuevo?",
+				"¿Cómo te va?",
+				"¿Cómo te fue hoy?",
+				"¡Hola! ¿Qué cuentas?",
+				"¿Qué hay de bueno?"
+			],
+			"responses": [
+				"Todo bien, ¿en qué te puedo ayudar?",
+				"Bien, ¿en qué te puedo ayudar?",
+				"Todo tranquilo, ¿en qué te puedo ayudar?",
+				"Todo en orden, ¿en qué te puedo ayudar?",
+				"Nada nuevo, ¿en qué te puedo ayudar?",
+				"Todo bajo control, ¿en qué te puedo ayudar?",
+				"Nada, ¿en qué te puedo ayudar?",
+				"Bien, gracias ¿en qué te puedo ayudar?",
+				"Lo de siempre, ¿en qué te puedo ayudar?",
+				"Nada, aquí, ¿en qué te puedo ayudar?"
+			]
+		},
+		{
+			"tag": "Solicitud",
+			"patterns": [
+				"Quiero cocinar pero no sé qué. ¿Algún consejo?",
+				"Quiero cocinar pero no sé qué. ¿Tienes alguna sugerencia?",
+				"Quiero cocinar pero no sé qué. ¿Me echas una mano con ideas?",
+				"Quiero cocinar pero no sé qué. ¿Puedes ayudarme a decidir?",
+				"Quiero cocinar pero no sé qué. ¿Se te ocurre algo fácil?",
+				"Quiero cocinar pero no sé qué. ¿Te gustaría pensar juntos en alguna receta?"
+			],
+			"responses": [
+				"¡Claro! ¿Puedes decirme los ingredientes que tienes y/o quieres que tenga para brindarte propuestas?",
+				"¡Por supuesto! ¿Cuáles son tus ingredientes disponibles o tus preferencias? Así puedo sugerirte algo genial.",
+				"¡Sí, claro! ¿Qué tienes en la despensa o qué te gustaría usar? Así puedo darte algunas ideas.",
+				"¡Claro que sí! ¿Podrías mencionar qué ingredientes tienes para que pueda ayudarte mejor?",
+				"¡Sin problema! ¿Qué tienes en mente o qué tienes disponible para cocinar?",
+				"¡De una! ¿Cuáles son tus ingredientes disponibles o tus preferencias culinarias?",
+				"¡Listo! ¿Qué tienes en tu cocina o qué te gustaría usar para cocinar hoy?",
+				"¡Dame más detalles! ¿Qué tienes en la nevera o qué te gustaría comprar para preparar algo?",
+				"¡Entendido! ¿Cuáles son tus ingredientes favoritos o tus restricciones alimenticias?",
+				"¡Lo puedo hacer! ¿Puedes decirme qué ingredientes tienes a mano o qué te apetece comer hoy?"
+			]
+		}
+	]
+}
