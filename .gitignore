@@ -25,4 +25,4 @@ dist-ssr
 
 # Model
 *.pkl
-*.keras
+*.h5
