@@ -1,0 +1,32 @@
+CREATE database Pinche; 
+USE database Pinche; 
+CREATE TABLE Receta (
+    Id INT PRIMARY KEY,
+    nombre VARCHAR(255),
+    ingredientes_id INT,
+    cantidad_ingredientes DOUBLE,
+    tiempo_preparacion DOUBLE,
+    pasos TEXT,
+    imagenes BLOB,
+    rendimiento VARCHAR(255),
+    tamano_porcion VARCHAR(255),
+    tipo_platillo VARCHAR(255),
+    notas TEXT,
+    FOREIGN KEY (ingredientes_id) REFERENCES Ingredientes(Id)
+);
+  CREATE TABLE Ingrediente(
+    Id INT PRIMARY KEY, 
+    Nombre VARCHAR(255), 
+    Gramaje DOUBLE, 
+    Notas TEXT, 
+    Imagen BLOB
+  
+  );
+CREATE TABLE Utensilios(
+    Id INT PRIMARY KEY, 
+    Nombre VARCHAR(255),
+    Material VARCHAR(255),
+    Capacidad DOUBLE, 
+    Notas VARCHAR(255),
+    Imagen BLOB
+  );
