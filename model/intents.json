@@ -1,54 +1,43 @@
 {
 	"intents": [
 		{
-			"tag": "Saludos",
-			"patterns": [
-				"Hola, ¿cómo estás?",
-				"¿Qué onda?",
-				"¿Qué tal?",
-				"¿Cómo va todo?",
-				"¿Qué pasa?",
-				"¿Qué hay de nuevo?",
-				"¿Cómo te va?",
-				"¿Cómo te fue hoy?",
-				"¡Hola! ¿Qué cuentas?",
-				"¿Qué hay de bueno?"
-			],
+			"tag": "Greetings",
+			"patterns": ["Greetings", "Hello", "Hi", "greetings", "hello", "hi"],
 			"responses": [
-				"Todo bien, ¿en qué te puedo ayudar?",
-				"Bien, ¿en qué te puedo ayudar?",
-				"Todo tranquilo, ¿en qué te puedo ayudar?",
-				"Todo en orden, ¿en qué te puedo ayudar?",
-				"Nada nuevo, ¿en qué te puedo ayudar?",
-				"Todo bajo control, ¿en qué te puedo ayudar?",
-				"Nada, ¿en qué te puedo ayudar?",
-				"Bien, gracias ¿en qué te puedo ayudar?",
-				"Lo de siempre, ¿en qué te puedo ayudar?",
-				"Nada, aquí, ¿en qué te puedo ayudar?"
+				"Greetings, how can I assist you?",
+				"Hello, how can I help you?"
 			]
 		},
 		{
-			"tag": "Solicitud",
+			"tag": "Request",
 			"patterns": [
-				"Quiero cocinar pero no sé qué. ¿Algún consejo?",
-				"Quiero cocinar pero no sé qué. ¿Tienes alguna sugerencia?",
-				"Quiero cocinar pero no sé qué. ¿Me echas una mano con ideas?",
-				"Quiero cocinar pero no sé qué. ¿Puedes ayudarme a decidir?",
-				"Quiero cocinar pero no sé qué. ¿Se te ocurre algo fácil?",
-				"Quiero cocinar pero no sé qué. ¿Te gustaría pensar juntos en alguna receta?"
+				"Cooking",
+				"I need to cook",
+				"I want to cook",
+				"cooking",
+				"i need to cook",
+				"i want to cook"
 			],
 			"responses": [
-				"¡Claro! ¿Puedes decirme los ingredientes que tienes y/o quieres que tenga para brindarte propuestas?",
-				"¡Por supuesto! ¿Cuáles son tus ingredientes disponibles o tus preferencias? Así puedo sugerirte algo genial.",
-				"¡Sí, claro! ¿Qué tienes en la despensa o qué te gustaría usar? Así puedo darte algunas ideas.",
-				"¡Claro que sí! ¿Podrías mencionar qué ingredientes tienes para que pueda ayudarte mejor?",
-				"¡Sin problema! ¿Qué tienes en mente o qué tienes disponible para cocinar?",
-				"¡De una! ¿Cuáles son tus ingredientes disponibles o tus preferencias culinarias?",
-				"¡Listo! ¿Qué tienes en tu cocina o qué te gustaría usar para cocinar hoy?",
-				"¡Dame más detalles! ¿Qué tienes en la nevera o qué te gustaría comprar para preparar algo?",
-				"¡Entendido! ¿Cuáles son tus ingredientes favoritos o tus restricciones alimenticias?",
-				"¡Lo puedo hacer! ¿Puedes decirme qué ingredientes tienes a mano o qué te apetece comer hoy?"
+				"Give me more details! What do you have in the fridge or what would you like to buy to prepare something?",
+				"No problem! What do you have in mind or what do you have available to cook?",
+				"Understood! What are your favorite ingredients or dietary restrictions?"
 			]
+		},
+		{
+			"tag": "Apple",
+			"patterns": ["Apple", "apple"],
+			"responses": ["I matched an apple"]
+		},
+		{
+			"tag": "Orange",
+			"patterns": ["Orange", "orange"],
+			"responses": ["I matched an orange"]
+		},
+		{
+			"tag": "Pineapple",
+			"patterns": ["Pineapple", "pineapple"],
+			"responses": ["I matched a pineapple"]
 		}
 	]
 }
