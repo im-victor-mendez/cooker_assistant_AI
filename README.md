@@ -1,30 +1,52 @@
-# React + TypeScript + Vite
+# Cooker Assistant AI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Prototipo de Inteligencia ARtificial para ayudar a cocinar.
 
-Currently, two official plugins are available:
+## Idea Principal
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> Le indicas los ingredientes que crees vayan bien juntos, la IA busca matches y devuelve la receta como instrucciones interactivas.
 
-## Expanding the ESLint configuration
+## Como colaborar
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Instalar [Python](https://www.python.org/downloads/) y [pip](https://pip.pypa.io/en/stable/installation/)
+2. Instalar librerías necesarias
 
-- Configure the top-level `parserOptions` property like this:
+   1. [Numpy](https://numpy.org/)
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+      ```console
+      pip install numpy
+      ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+   2. [TensorFlow](https://www.tensorflow.org/)
+
+      ```console
+      pip install tensorflow
+      ```
+
+   3. [NLTK](https://www.nltk.org/)
+
+      ```console
+      pip install nltk
+      ```
+
+3. Puedes agregar _tags_ en el archivo **_model/intents.json_** siguiendo la siguiente estructura dentro de la key _intents_:
+
+   ```json
+   {
+   	"tag": "Identificador de las interacciones",
+   	// Se recomienda que se escriban con inicial minúscula
+   	"patterns": [
+   		"Patrones para",
+   		"ser identificadas",
+   		"y regresar una respuesta",
+   		"adecuada"
+   	],
+   	"responses": ["Respuestas que", "quieres que regrese", "el modelo."]
+   }
+   ```
+
+4. Ejecutar el archivo **_model/training.py_** para generar los archivos **_model/classes.pkl_**, **_model/words.pkl_** y **_model/model.h5_**
+
+5. Ejecutar **_model/chat.py_**
+
+> Por cada modificación en el archivo **_model/intents.json_** sera necesaria la ejecución del archivo **_model/training.py_**.
