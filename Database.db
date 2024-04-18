@@ -1,4 +1,5 @@
-
+CREATE DATABASE Pinche;
+use database Pinche;
 CREATE TABLE Recetas (
     Id INT PRIMARY KEY,
     Nombre VARCHAR(255),
