@@ -31,8 +31,9 @@ cursor = conn.cursor()
 
 
 def clean_up_sentence(sentence):
-
-    sentence_words = nltk.word_tokenize(sentence)
+    spanish_sentence_tokenizer = nltk.data.load(
+        'tokenizers/punkt/spanish.pickle')
+    sentence_words = spanish_sentence_tokenizer.tokenize(sentence)
     sentence_words = [lemmatizer.lemmatize(word) for word in sentence_words]
 
     return sentence_words

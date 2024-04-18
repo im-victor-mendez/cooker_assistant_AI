@@ -1,13 +1,208 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Asistente de cocina IA</title>
+
+		<link
+			rel="stylesheet"
+			href="https://pyscript.net/releases/2024.1.1/core.css"
+		/>
+		<script
+			type="module"
+			src="https://pyscript.net/releases/2024.1.1/core.js"
+		></script>
+
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				background-color: #f0f0f0;
+				margin: 0;
+				padding: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+			}
+
+			.chat-container {
+				display: flex;
+				flex-direction: column;
+				width: 800px;
+				border-radius: 10px;
+				overflow: hidden;
+				box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+				background-color: #fff;
+			}
+
+			.chat-header {
+				background-color: #eab162;
+				color: #fff;
+				padding: 20px;
+				font-size: 24px;
+				text-align: center;
+			}
+
+			.chat-content {
+				display: flex;
+				flex: 1;
+				overflow: hidden;
+			}
+
+			.chat-messages {
+				flex: 1;
+				padding: 20px;
+				height: 500px;
+				overflow-y: scroll;
+			}
+
+			.user-message {
+				background-color: #f1f1f1;
+				color: #000;
+				padding: 15px;
+				margin: 10px 20px;
+				border-radius: 20px;
+				max-width: 70%;
+				word-wrap: break-word;
+			}
+
+			.bot-message {
+				background-color: #007bff;
+				color: #fff;
+				padding: 15px;
+				margin: 10px 20px;
+				border-radius: 20px;
+				max-width: 70%;
+				word-wrap: break-word;
+				align-self: flex-end;
+			}
+
+			.history-sidebar {
+				width: 0;
+				overflow: hidden;
+				transition: width 0.3s ease;
+				border-right: 1px solid #ddd;
+			}
+
+			.history-sidebar.open {
+				width: 300px;
+			}
+
+			.history-sidebar-header {
+				background-color: #007bff;
+				color: #fff;
+				padding: 20px;
+				font-size: 20px;
+				text-align: center;
+			}
+
+			.history-list {
+				list-style-type: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			.history-list-item {
+				padding: 15px;
+				cursor: pointer;
+				transition: background-color 0.3s;
+			}
+
+			.history-list-item:hover {
+				background-color: #f1f1f1;
+			}
+
+			.input-container {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				border-top: 1px solid #ddd;
+				background-color: #f9f9f9;
+				padding: 20px;
+			}
+
+			.user-input {
+				flex: 1;
+				padding: 15px;
+				border: none;
+				outline: none;
+				border-radius: 30px;
+			}
+
+			.send-button {
+				padding: 15px 30px;
+				background-color: #eab162;
+				color: #fff;
+				border: none;
+				border-radius: 30px;
+				cursor: pointer;
+				transition: background-color 0.3s;
+			}
+
+			.send-button:hover {
+				background-color: #0056b3;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="chat-container">
+			<div class="chat-header">Asistente de cocina IA</div>
+			<div class="chat-content">
+				<div class="history-sidebar" id="history-sidebar">
+					<div class="history-sidebar-header">Historial</div>
+					<ul class="history-list">
+						<li class="history-list-item">Mensaje 1</li>
+						<li class="history-list-item">Mensaje 2</li>
+						<li class="history-list-item">Mensaje 3</li>
+					</ul>
+				</div>
+				<div class="chat-messages" id="chat-messages">
+					<div class="bot-message">¡Hola Chef! ¿En qué puedo ayudarte?</div>
+				</div>
+			</div>
+			<div class="input-container">
+				<input
+					type="text"
+					class="user-input"
+					id="user-input"
+					placeholder="Escribe tu mensaje..."
+				/>
+				<button class="send-button" onclick="sendMessage()">Enviar</button>
+				<button class="send-button" onclick="toggleSidebar()">Historial</button>
+			</div>
+		</div>
+
+		<script>
+			function sendMessage() {
+				var userInput = document.getElementById('user-input').value;
+				var chatMessages = document.getElementById('chat-messages');
+
+				if (userInput.trim() === '') return;
+
+				var userMessage = document.createElement('div');
+				userMessage.className = 'user-message';
+				userMessage.textContent = userInput;
+				chatMessages.appendChild(userMessage);
+
+				// Simular respuesta del bot (puedes reemplazar esto con llamadas a una API de procesamiento de lenguaje natural)
+				setTimeout(function () {
+					var botMessage = document.createElement('div');
+					botMessage.className = 'bot-message';
+					botMessage.textContent =
+						'Lo siento, todavía estoy aprendiendo. ¡Pregúntame otra cosa!';
+					chatMessages.appendChild(botMessage);
+					chatMessages.scrollTop = chatMessages.scrollHeight;
+				}, 500);
+
+				document.getElementById('user-input').value = '';
+				chatMessages.scrollTop = chatMessages.scrollHeight;
+			}
+
+			function toggleSidebar() {
+				var sidebar = document.getElementById('history-sidebar');
+				sidebar.classList.toggle('open');
+			}
+		</script>
+	</body>
 </html>

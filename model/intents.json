@@ -1,46 +1,46 @@
 {
 	"intents": [
 		{
-			"tag": "Greetings",
-			"patterns": ["Greetings", "Hello", "Hi", "greetings", "hello", "hi"],
+			"tag": "Saludos",
+			"patterns": ["Saludos", "Hola", "Hola", "saludos", "hola", "hi"],
 			"responses": [
-				"Greetings, how can I assist you?",
-				"Hello, how can I help you?"
+				"¡Saludos! ¿Cómo puedo ayudarte?",
+				"Hola, ¿en qué puedo ayudarte?"
 			]
 		},
 		{
-			"tag": "Request",
+			"tag": "Pedido",
 			"patterns": [
-				"Cooking",
-				"I need to cook",
-				"I want to cook",
-				"cooking",
-				"i need to cook",
-				"i want to cook"
+				"Cocinar",
+				"Necesito cocinar",
+				"Quiero cocinar",
+				"cocinar",
+				"necesito cocinar",
+				"quiero cocinar"
 			],
 			"responses": [
-				"Give me more details! What do you have in the fridge or what would you like to buy to prepare something?",
-				"No problem! What do you have in mind or what do you have available to cook?",
-				"Understood! What are your favorite ingredients or dietary restrictions?"
+				"¡Dame más detalles! ¿Qué tienes en el refrigerador o qué te gustaría comprar para preparar algo?",
+				"¡No hay problema! ¿Qué tienes en mente o qué tienes disponible para cocinar?",
+				"Entendido. ¿Cuáles son tus ingredientes favoritos o restricciones alimentarias?"
 			]
 		},
 		{
-			"tag": "Apple",
-			"patterns": ["Apple", "apple", "Apples", "apples"],
+			"tag": "Manzana",
+			"patterns": ["Manzana", "manzana", "Manzanas", "manzanas"],
 			"responses": [
 				"SELECT R.Nombre AS Receta, R.TiempoPreparacion AS 'Tiempo de Preparacion', R.Pasos, R.Rendimiento, R.TamanoPorcion AS 'Tamaño de la Porción', R.TipoPlatillo AS 'Tipo de Platillo', R.Notas, I.Nombre AS 'Nombre del Ingrediente', I.UnidadMedida, I.Categoria, U.Nombre AS 'Nombre del Utensilio' FROM Recetas R JOIN RecetaIngredientes RI ON R.Id = RI.IdReceta JOIN Ingredientes I ON RI.IdIngrediente = I.Id JOIN RecetaUtensilios RU ON R.Id = RU.IdReceta JOIN Utensilios U ON RU.IdUtensilio = U.Id WHERE I.Nombre = 'Apple';"
 			]
 		},
 		{
-			"tag": "Orange",
-			"patterns": ["Orange", "orange", "Oranges", "oranges"],
+			"tag": "Naranja",
+			"patterns": ["Naranja", "naranja", "Naranjas", "naranjas"],
 			"responses": [
 				"SELECT R.Nombre AS Receta, R.TiempoPreparacion AS 'Tiempo de Preparacion', R.Pasos, R.Rendimiento, R.TamanoPorcion AS 'Tamaño de la Porción', R.TipoPlatillo AS 'Tipo de Platillo', R.Notas, I.Nombre AS 'Nombre del Ingrediente', I.UnidadMedida, I.Categoria, U.Nombre AS 'Nombre del Utensilio' FROM Recetas R JOIN RecetaIngredientes RI ON R.Id = RI.IdReceta JOIN Ingredientes I ON RI.IdIngrediente = I.Id JOIN RecetaUtensilios RU ON R.Id = RU.IdReceta JOIN Utensilios U ON RU.IdUtensilio = U.Id WHERE I.Nombre = 'Orange';"
 			]
 		},
 		{
-			"tag": "Pineapple",
-			"patterns": ["Pineapple", "pineapple", "Pineapples", "pineapples"],
+			"tag": "Piña",
+			"patterns": ["Piña", "piña", "Piñas", "piñas"],
 			"responses": [
 				"SELECT R.Nombre AS Receta, R.TiempoPreparacion AS 'Tiempo de Preparacion', R.Pasos, R.Rendimiento, R.TamanoPorcion AS 'Tamaño de la Porción', R.TipoPlatillo AS 'Tipo de Platillo', R.Notas, I.Nombre AS 'Nombre del Ingrediente', I.UnidadMedida, I.Categoria, U.Nombre AS 'Nombre del Utensilio' FROM Recetas R JOIN RecetaIngredientes RI ON R.Id = RI.IdReceta JOIN Ingredientes I ON RI.IdIngrediente = I.Id JOIN RecetaUtensilios RU ON R.Id = RU.IdReceta JOIN Utensilios U ON RU.IdUtensilio = U.Id WHERE I.Nombre = 'Pineapple';"
 			]
