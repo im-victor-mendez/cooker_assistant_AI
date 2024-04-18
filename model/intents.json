@@ -26,18 +26,24 @@
 		},
 		{
 			"tag": "Apple",
-			"patterns": ["Apple", "apple"],
-			"responses": ["I matched an apple"]
+			"patterns": ["Apple", "apple", "Apples", "apples"],
+			"responses": [
+				"SELECT R.Nombre AS Receta, R.TiempoPreparacion AS 'Tiempo de Preparacion', R.Pasos, R.Rendimiento, R.TamanoPorcion AS 'Tamaño de la Porción', R.TipoPlatillo AS 'Tipo de Platillo', R.Notas, I.Nombre AS 'Nombre del Ingrediente', I.UnidadMedida, I.Categoria, U.Nombre AS 'Nombre del Utensilio' FROM Recetas R JOIN RecetaIngredientes RI ON R.Id = RI.IdReceta JOIN Ingredientes I ON RI.IdIngrediente = I.Id JOIN RecetaUtensilios RU ON R.Id = RU.IdReceta JOIN Utensilios U ON RU.IdUtensilio = U.Id WHERE I.Nombre = 'Apple';"
+			]
 		},
 		{
 			"tag": "Orange",
-			"patterns": ["Orange", "orange"],
-			"responses": ["I matched an orange"]
+			"patterns": ["Orange", "orange", "Oranges", "oranges"],
+			"responses": [
+				"SELECT R.Nombre AS Receta, R.TiempoPreparacion AS 'Tiempo de Preparacion', R.Pasos, R.Rendimiento, R.TamanoPorcion AS 'Tamaño de la Porción', R.TipoPlatillo AS 'Tipo de Platillo', R.Notas, I.Nombre AS 'Nombre del Ingrediente', I.UnidadMedida, I.Categoria, U.Nombre AS 'Nombre del Utensilio' FROM Recetas R JOIN RecetaIngredientes RI ON R.Id = RI.IdReceta JOIN Ingredientes I ON RI.IdIngrediente = I.Id JOIN RecetaUtensilios RU ON R.Id = RU.IdReceta JOIN Utensilios U ON RU.IdUtensilio = U.Id WHERE I.Nombre = 'Orange';"
+			]
 		},
 		{
 			"tag": "Pineapple",
-			"patterns": ["Pineapple", "pineapple"],
-			"responses": ["I matched a pineapple"]
+			"patterns": ["Pineapple", "pineapple", "Pineapples", "pineapples"],
+			"responses": [
+				"SELECT R.Nombre AS Receta, R.TiempoPreparacion AS 'Tiempo de Preparacion', R.Pasos, R.Rendimiento, R.TamanoPorcion AS 'Tamaño de la Porción', R.TipoPlatillo AS 'Tipo de Platillo', R.Notas, I.Nombre AS 'Nombre del Ingrediente', I.UnidadMedida, I.Categoria, U.Nombre AS 'Nombre del Utensilio' FROM Recetas R JOIN RecetaIngredientes RI ON R.Id = RI.IdReceta JOIN Ingredientes I ON RI.IdIngrediente = I.Id JOIN RecetaUtensilios RU ON R.Id = RU.IdReceta JOIN Utensilios U ON RU.IdUtensilio = U.Id WHERE I.Nombre = 'Pineapple';"
+			]
 		}
 	]
 }

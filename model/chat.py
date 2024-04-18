@@ -2,6 +2,7 @@ import random
 import json
 import pickle
 import numpy
+import mysql.connector
 
 import nltk
 from nltk.stem import WordNetLemmatizer
@@ -15,6 +16,18 @@ intents = json.loads(open("model/intents.json").read())
 words = pickle.load(open("model/words.pkl", "rb"))
 classes = pickle.load(open("model/classes.pkl", "rb"))
 model = load_model("model/model.h5")
+
+
+# Conectar a la base de datos
+conn = mysql.connector.connect(
+    host="127.0.0.1",
+    user="root",
+    password="",
+    database="Pinche"
+)
+
+# Crear un cursor
+cursor = conn.cursor()
 
 
 def clean_up_sentence(sentence):
@@ -43,13 +56,13 @@ def predict_class(sentence):
 
     ERROR_THRESHOLD = 0.25
 
-    results = [[i, r]for i, r in enumerate(res) if r > ERROR_THRESHOLD]
+    res = [[i, r]for i, r in enumerate(res) if r > ERROR_THRESHOLD]
 
-    results.sort(key=lambda x: x[1], reverse=True)
+    res.sort(key=lambda x: x[1], reverse=True)
 
     return_list = []
 
-    for r in results:
+    for r in res:
         return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
 
     return return_list
@@ -76,4 +89,16 @@ while True:
     ints = predict_class(message)
     res = get_response(ints, intents)
 
-    print(res)
+    if "SELECT" in res:
+        # # Ejecutar una instrucción SQL
+
+        cursor.execute(res)
+        res = cursor.fetchall()
+        for recipe in res:
+            print(recipe)
+
+    else:
+        print(res)
+
+# Cerrar la conexión
+conn.close()
